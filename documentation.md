@@ -27,35 +27,35 @@ website. Move on to the next request/response documentation.
 
 * Note
     - Headers contain many keys, but for this exercise focus on **Content-Type** and **Location**.
- 
+
 =============================================
 =============================================
 
 ### Ask for a page that doesn't exist
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: http://localhost:5000/hello
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers: 
-- Body:
+- Status code: 404 Not Found
+- Headers: text/html; charset=utf-8
+- Body: none
 
 ### Ask for the products list page
 
 Request components:
-- Method:
-- URL:
-- Headers:
-- Body:
+- Method: GET
+- URL: http://localhost:5000/products
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 200 OK
+- Headers: text/html; charset=utf-8
+- Body: none
 
 ### Ask for the product detail page
 
@@ -70,28 +70,28 @@ Here's an example product on the server:
 | categories  | "beauty", "electronics"                                    |
 
 Request components:
-- Method:
-- URL: 
-- Headers: 
-- Body: 
+- Method: GET
+- URL: http://localhost:5000/products/1
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 200 OK
+- Headers: text/html
+- Body: HTML page of the product
 
 ### Ask for the create new product page
 
 Request components:
-- Method:
-- URL:
-- Headers: 
-- Body: 
+- Method: GET
+- URL: http://localhost:5000/products/new
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers: 
-- Body: 
+- Status code: 200 OK
+- Headers: text/html
+- Body: HTML page of create a product
 
 ### Submit a new product
 
@@ -113,62 +113,62 @@ Here are the categories on the server:
 | furniture   | Furniture      |
 | clothing    | Clothing       |
 
-* Note: In Chome dev tools, if the "body" of a request exists, it will appear 
+* Note: In Chome dev tools, if the "body" of a request exists, it will appear
 in the network tab as "payload".
 
 Request components:
-- Method: 
-- URL: 
-- Headers: 
-- Body: 
+- Method: POST
+- URL: http://localhost:5000/products
+- Headers: application/x-www-form-urlencoded
+- Body: name=blackjangaa&description=hookah&price=32&categories=grocery
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 302 Found
+- Headers: text/html
+- Body: name=grocery&description=1&price=grocery&categories=grocery
 
 ### Ask for the edit product page
 
 Request components:
-- Method: 
-- URL: 
-- Headers: 
-- Body: 
+- Method: GET
+- URL:http://localhost:5000/products/3/edit
+- Headers: none
+- Body: none
 
 Response components:
-- Status code:
-- Headers: 
-- Body:
+- Status code: 200 OK
+- Headers: text/html
+- Body: HTML page of edit
 
 ### Submit an edit for an existing product
 
 After successful submission, user should be looking at the product detail page.
 
 Request components:
-- Method:
-- URL:
-- Headers: 
-- Body: 
+- Method: POST
+- URL:http://localhost:5000/products/3
+- Headers:application/x-www-form-urlencoded
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 302 Found
+- Headers: text/html
+- Body: name=grocery&description=1&price=grocery&categories=grocery
 
 ### Submit a delete for an existing product
 
 After successful submission, user should be looking at the products list page.
 
 Request components:
-- Method: 
+- Method:
 - URL:
-- Headers: 
-- Body: 
+- Headers:
+- Body:
 
 Response components:
-- Status code: 
+- Status code:
 - Headers:
-- Body: 
+- Body:
 
 ### Submit a new review for a product
 
@@ -184,83 +184,83 @@ Here's an example review on the server:
 | productId  | 1                      |
 
 Request components:
-- Method: 
-- URL: 
-- Headers:
-- Body:
+- Method: POST
+- URL: http://localhost:5000/products/3/delete
+- Headers: application/x-www-form-urlencoded
+- Body: none
 
 Response components:
-- Status code: 
-- Headers: 
-- Body: 
+- Status code:302 Found
+- Headers: text/html
+- Body: HTML page of product list
 
 ### Ask for the edit review page for a product
 
 Request components:
-- Method: 
-- URL: 
-- Headers: 
-- Body: 
+- Method: GET
+- URL: http://localhost:5000/reviews/1/edit
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 200 OK
+- Headers: text/html
+- Body: HTML page of edit review
 
 ### Submit an edit for an existing review
 
 After successful submission, user should be looking at the product detail page.
 
 Request components:
-- Method: 
-- URL: 
-- Headers:
-- Body: 
+- Method: POST
+- URL: http://localhost:5000/reviews/1
+- Headers: application/x-www-form-urlencoded
+- Body: comment=I+love+this+product%21&starRating=5
 
 Response components:
-- Status code: 
-- Headers: 
-- Body:
+- Status code: 302 Found
+- Headers: text/html
+- Body: HTML page of product page
 
 ### Submit a delete for an existing review
 
 After successful submission, user should be looking at the product detail page.
 
 Request components:
-- Method:
-- URL: 
-- Headers: 
-- Body: 
+- Method: POST
+- URL: http://localhost:5000/reviews/1/delete
+- Headers: application/x-www-form-urlencoded
+- Body: none
 
 Response components:
-- Status code: 
-- Headers: 
-- Body: 
+- Status code: 302 Found
+- Headers: text/html
+- Body: HTML page of the product
 
 ### Ask for all the products in a particular category by tag of the category
 
 Request components:
-- Method: 
-- URL: 
-- Headers: 
-- Body: 
+- Method: GET
+- URL: http://localhost:5000/categories/electronics/products
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 200
+- Headers: text/html
+- Body: HTML page of the category electronocs product
 
 ### Ask for the best-selling product
 
 Look for clues in the HTML pages from the prior responses for what the route should be.
 
 Request components:
-- Method: 
-- URL: 
-- Headers: 
-- Body: 
+- Method: GET
+- URL: http://localhost:5000/products/best-selling
+- Headers: none
+- Body: none
 
 Response components:
-- Status code: 
-- Headers:
-- Body: 
+- Status code: 200
+- Headers: text/html
+- Body: HTML page of the best selling product
